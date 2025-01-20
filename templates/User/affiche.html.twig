@@ -1,0 +1,52 @@
+  {% extends 'base.html.twig' %}
+
+
+{% block body %} 
+<style>
+ #db-wrapper {
+        box-sizing: border-box;
+        overflow-x: hidden;
+  display: flex;
+      }
+    #btn22{
+      cursor: not-allowed;
+    }
+</style>
+  <link rel="stylesheet" href="{{ asset('css/requests.css') }}">
+  <body>
+   <div id="db-wrapper">
+    <!-- navbar vertical -->
+    <!-- page content -->
+   
+ <div class="container">
+    <div class="row">
+        <div class="col-md-8">
+        <br>
+            <div class="people-nearby">
+                              {% for user in users %}
+
+              <div class="nearby-user">
+                <div class="row">
+                  <div class="col-md-2 col-sm-2">
+                    <img src={{user.photo}} alt="user" class="profile-photo-lg">
+                  </div>
+                  <div class="col-md-7 col-sm-7">
+                    <h5><a href="#" class="profile-link">{{user.name}}</a></h5>
+                    <p class="text-muted">{{user.date_naissance}}</p>
+                  </div>
+                  <div class="col-md-3 col-sm-3">
+   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+{% if user.isButtonClickable %}
+                <a href="{{ path('app_add', {'user_target_id': user.id}) }}" class="btn btn-success mb-2 mr-2">Ajouter</a>
+            {% else %}
+                <button class="btn btn-secondary mb-2 mr-2"disabled>Already sent</button>
+            {% endif %}                </div>
+                </div>
+              </div>
+                              {% endfor %}
+
+	</div>
+</div>
+</body>
+      {% endblock %}

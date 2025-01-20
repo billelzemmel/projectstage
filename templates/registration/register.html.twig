@@ -1,0 +1,60 @@
+ <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+
+<body>
+  <!-- container -->
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center g-0
+        min-vh-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xxl-4 py-8 py-xl-0">
+        <!-- Card -->
+        <div class="card smooth-shadow-md">
+          <!-- Card body -->
+          <div class="card-body p-6">
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+     <div class="mb-3">
+                     <label for="name" class="form-label">User Name</label>
+
+        {{ form_row(registrationForm.name, {
+                    'label': false,
+                    'attr': {'id': 'name', 'class': 'form-control ','placeholder':'name'}
+                }) }}
+                      </div>
+     <div class="mb-3">
+                     <label for="email" class="form-label">Email</label>
+
+        {{ form_row(registrationForm.email, {
+                    'label': false,
+                    'attr': {'id': 'email', 'class': 'form-control ','placeholder':'email'}
+                }) }}
+                      </div>
+     <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+
+        {{ form_row(registrationForm.plainPassword, {
+            'label': false,
+            'attr': {'id': 'password', 'class': 'form-control ','placeholder':'password'}
+        }) }}
+                          </div>
+<div class="mb-3">
+                <div class="form-check custom-checkbox">
+        {{ form_row(registrationForm.agreeTerms, {
+            'label': false,
+            'attr': {'id': 'agreeCheck', 'class': 'form-check-input '}
+            }) }}
+<label class="form-check-label" for="agreeCheck"><span
+                        class="fs-5">I agree to the <a
+                          href="terms-condition-page.html">Terms of
+                          Service </a>and
+                        <a href="terms-condition-page.html">Privacy Policy.</a></span></label>
+</div>
+              </div>        
+ <!-- Button -->
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">
+                    Create Free Account
+                  </button>
+                </div>
+    {{ form_end(registrationForm) }}
